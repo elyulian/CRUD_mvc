@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CRUD_mvc.Models.datos>
+
+@{
+    ViewBag.Title = "listados";
+}
+
+<h2>listados</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo Registro", "Nuevo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_nacimiento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.id })|
+            @Html.ActionLink("Borrar", "Eliminar", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

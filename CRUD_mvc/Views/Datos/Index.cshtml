@@ -1,0 +1,37 @@
+﻿@model List<CRUD_mvc.Models.ViewModels.ListDatosViewModel>
+@{
+    ViewBag.Title = "Mis Datos";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Datos/Nuevo"class="btn btn-primary">Nuevo</a>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Nombre:</th>
+                <th>Correo:</th>
+                <th></th>
+            </tr>
+            @foreach(var oElementos in Model)
+            {
+        <tr>
+            <td>@oElementos.id</td>
+            <td>@oElementos.nombre</td>
+            <td>@oElementos.correo</td>
+            <td>
+                <a class="btn btn-default" href="~/Datos/Editar/@oElementos.id">Editar</a>
+                <a class="btn btn-danger" href="~/Datos/Eliminar/@oElementos.id">Eliminar</a>
+            </td>
+        </tr>
+            }
+        </table>
+    </div> 
+</div>
+
